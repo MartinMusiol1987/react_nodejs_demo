@@ -1,11 +1,6 @@
 import { Inter } from "next/font/google";
 import { Waves } from "@/components/ui/waves-background";
-import dynamic from 'next/dynamic';
-
-const Globe = dynamic(() => import('@/components/ui/globe').then(mod => mod.Globe), {
-  ssr: false,
-  loading: () => <div className="relative aspect-square w-full max-w-[500px] mx-auto bg-white/5 rounded-lg animate-pulse" />
-});
+import { ClientGlobe } from "@/components/ui/globe-client";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -55,9 +50,7 @@ export default function Home() {
             </div>
             
             {/* Right content - Globe */}
-            <div className="relative aspect-square w-full max-w-[500px] mx-auto">
-              <Globe />
-            </div>
+            <ClientGlobe />
           </div>
         </div>
       </div>
